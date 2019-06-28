@@ -9,18 +9,18 @@ public class CodeSnippet {
 
         // process visit logic
 
-        for(Integer neigbor : adj[v]) {
-            if(!visited[neigbor]) {
+        for (Integer neigbor : adj[v]) {
+            if (!visited[neigbor]) {
                 dfs(neigbor, visited);
             }
         }
     }
 
     public void dfs() {
-        boolean[] visited = new boolean[];
+        boolean[] visited = new boolean[size];
 
-        for(int i =0;i<size;i++){
-            if(!visited[i]) {
+        for (int i = 0; i < size; i++) {
+            if (!visited[i]) {
                 dfs(i, visited);
             }
         }

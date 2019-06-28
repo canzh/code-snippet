@@ -34,13 +34,13 @@ public class CodeSnippet {
         return false;
     }
 
-    public printShortestPath(int src, int dest) {
+    public void printShortestPath(int src, int dest) {
         int[] predecessor = new int[size];
         int[] distance = new int[size];
 
-        for (int i = 0; i < size; i++) { 
-            distance[i] = Integer.MAX_VALUE; 
-            predecessor[i] = -1; 
+        for (int i = 0; i < size; i++) {
+            distance[i] = Integer.MAX_VALUE;
+            predecessor[i] = -1;
         }
 
         if (!bfs(src, dest, predecessor, distance)) {
@@ -52,9 +52,9 @@ public class CodeSnippet {
         int crawl = dest;
         path.add(crawl);
 
-        while(predecessor[crawl] != -1) {
+        while (predecessor[crawl] != -1) {
             path.add(predecessor[crawl]);
-            crwal = predecessor[crawl];
+            crawl = predecessor[crawl];
         }
 
         // shortest path length is distance[dest]

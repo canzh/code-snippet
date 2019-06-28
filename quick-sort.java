@@ -28,17 +28,16 @@ public class CodeSnippet {
     }
 
     private void quickSortRecursive(int[] arr, int low, int high) {
-
         if (low < high) {
             int index = partition(arr, 0, arr.length - 1);
 
-            quickSort(arr, low, index - 1);
-            quickSort(arr, index + 1, high);
+            quickSortRecursive(arr, low, index - 1);
+            quickSortRecursive(arr, index + 1, high);
         }
     }
 
     private void quickSortIterative(int[] arr) {
-        Stack<Integer> stack = new Stack<>(arr.length);
+        Stack<Integer> stack = new Stack<>();
         stack.push(0);
         stack.push(arr.length - 1);
 
@@ -60,7 +59,6 @@ public class CodeSnippet {
         }
     }
 
-    
     // In 3 Way QuickSort, an array arr[l..r] is divided in 3 parts:
     // a) arr[l..i] elements less than pivot.
     // b) arr[i+1..j-1] elements equal to pivot.

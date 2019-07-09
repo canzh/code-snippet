@@ -46,4 +46,17 @@ public class CodeSnippet {
             p = p.right;
         }
     }
+
+    public void preOrderRecursive(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+
+        // visit logic
+
+        preOrderRecursive(root.left);
+        preOrderRecursive(root.right);
+
+        // logic before return back to parent node
+    }
 }

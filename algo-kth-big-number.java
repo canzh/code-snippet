@@ -23,6 +23,9 @@ public class CodeSnippet {
     }
 
     public int findKthLargest(int[] nums, int k) {
+        // guarantee O(n) = n
+        shuffle(nums);
+
         k = nums.length - k;
         int lo = 0;
         int hi = nums.length - 1;
@@ -37,6 +40,14 @@ public class CodeSnippet {
             }
         }
         return nums[k];
+    }
+
+    void shuffle(int a[]) {
+        final Random random = new Random();
+        for (int ind = 1; ind < a.length; ind++) {
+            final int r = random.nextInt(ind + 1);
+            exch(a, ind, r);
+        }
     }
 
     private int partition(int[] a, int lo, int hi) {

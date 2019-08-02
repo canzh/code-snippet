@@ -21,6 +21,22 @@ public class CodeSnippet {
         return small + 1;
     }
 
+    int partition2(int[] nums, int low, int high) {
+        int pivot = nums[high];
+        int small = low;
+
+        for (int i = low; i < high; i++) {
+            if (nums[i] <= pivot) {
+                swap(nums, small, i);
+                small++;
+            }
+        }
+
+        swap(nums, small, high);
+
+        return small;
+    }
+
     private void swap(int[] arr, int p1, int p2) {
         int temp = arr[p1];
         arr[p1] = arr[p2];

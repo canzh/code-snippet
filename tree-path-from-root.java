@@ -7,11 +7,12 @@ public class CodeSnippet {
     }
 
     public boolean getPath(TreeNode root, TreeNode toFind, Deque<TreeNode> path) {
+        path.add(root);
+
         if (root == toFind) {
             return true;
         }
 
-        path.add(root);
         boolean found = false;
 
         for (TreeNode child : root.children) {

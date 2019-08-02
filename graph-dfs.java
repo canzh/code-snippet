@@ -19,7 +19,7 @@ public class CodeSnippet {
     public void dfs() {
         boolean[] visited = new boolean[size];
 
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++) { // for non-connected graph
             if (!visited[i]) {
                 dfs(i, visited);
             }

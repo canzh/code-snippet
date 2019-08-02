@@ -29,7 +29,7 @@ public class CodeSnippet {
         int small = low;
 
         for (int i = low; i < high; i++) { // not <= high, since high is for pivot
-            if (arr[i] <= pivot) {
+            if (arr[i] <= pivot) { // values equal to pivot move to front part
                 swap(arr, small, i);
                 small++;
             }
@@ -41,6 +41,9 @@ public class CodeSnippet {
     }
 
     private void swap(int[] arr, int p1, int p2) {
+        if (p1 == p2)
+            return;
+
         int temp = arr[p1];
         arr[p1] = arr[p2];
         arr[p2] = temp;

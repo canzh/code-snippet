@@ -21,23 +21,29 @@ public class CodeSnippet {
         return small + 1;
     }
 
-    int partition2(int[] nums, int low, int high) {
-        int pivot = nums[high];
+    private int partition2(int[] arr, int low, int high) {
+        int pivot = arr[high]; // pivot choose can be many ways, here use the high
+
+        // if choose high as pivot, so we do not need to swap it to the last position
+
         int small = low;
 
-        for (int i = low; i < high; i++) {
-            if (nums[i] <= pivot) {
-                swap(nums, small, i);
+        for (int i = low; i < high; i++) { // not <= high, since high is for pivot
+            if (arr[i] <= pivot) { // values equal to pivot move to front part
+                swap(arr, small, i);
                 small++;
             }
         }
 
-        swap(nums, small, high);
+        swap(arr, small, high);
 
         return small;
     }
 
     private void swap(int[] arr, int p1, int p2) {
+        if (p1 == p2)
+            return;
+
         int temp = arr[p1];
         arr[p1] = arr[p2];
         arr[p2] = temp;

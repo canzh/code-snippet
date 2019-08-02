@@ -1,5 +1,6 @@
 import java.util.*;
 
+// Prim is for 边稠密图
 public class PrimMinSpanningTree {
     final static int INF = Integer.MAX_VALUE;
 

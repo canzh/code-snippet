@@ -1,4 +1,6 @@
 public class CodeSnippet {
+    // color defined as 0, 1, 2
+    // notice the move of indices
     public void sortColors(int[] nums) {
         if (nums == null || nums.length == 0)
             return;

@@ -22,6 +22,7 @@ public class CodeSnippet {
         return arr[idx];
     }
 
+    // more concise
     public int findKthLargest(int[] nums, int k) {
         // guarantee O(n) = n
         shuffle(nums);

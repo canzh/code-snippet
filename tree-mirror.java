@@ -30,21 +30,18 @@ public class CodeSnippet {
     public static void mirrorTreeWithQueue(TreeNode root) {
         if (root == null)
             return;
-        // 如果树为 null 直接返回。否则将根节点入队列。
+
         Queue<TreeNode> queue = new LinkedList<TreeNode>();
         queue.add(root);
         while (!queue.isEmpty()) {
-            // 队列不为空时，节点出队，交换该节点的左右子树。
-            TreeNode root1 = queue.poll();
+            TreeNode t = queue.poll();
 
-            Swap(root1);
-            if (root1.right != null) {
-                queue.add(root1.right);
-                // 如果左子树不为 null 入队
+            Swap(t);
+            if (t.right != null) {
+                queue.add(t.right);
             }
-            if (root1.left != null) {
-                queue.add(root1.left);
-                // 如果右子树不为 null 入队。
+            if (t.left != null) {
+                queue.add(t.left);
             }
         }
     }
@@ -61,17 +58,14 @@ public class CodeSnippet {
         Stack<TreeNode> stack = new Stack<TreeNode>();
         stack.push(root);
         while (!stack.isEmpty()) {
-            // 当栈不为 null 时出栈，交换左右子树。
-            TreeNode root1 = stack.pop();
+            TreeNode t = stack.pop();
 
-            Swap(root1);
-            if (root1.right != null) {
-                // 右子树不为 null 入栈
-                stack.push(root1.right);
+            Swap(t);
+            if (t.right != null) {
+                stack.push(t.right);
             }
-            if (root1.left != null) {
-                // 左子树不为 null 入栈
-                stack.push(root1.left);
+            if (t.left != null) {
+                stack.push(t.left);
             }
         }
 

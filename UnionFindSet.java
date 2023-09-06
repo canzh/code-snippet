@@ -6,6 +6,8 @@ public class UnionFindSet {
     UnionFindSet(int n) {
         // 初始都为-1
         elements = new int[n];
+
+        // Arrays.fill(elements, -1);
         for (int i = 0; i < n; i++) {
             elements[i] = -1;
         }

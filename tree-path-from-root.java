@@ -41,6 +41,7 @@ public class CodeSnippet {
  * }
  */
 class Solution {
+    // Method 1
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null || p == root || q == root)
             return root;
@@ -88,11 +89,36 @@ class Solution {
     }
 
 
+    // Method 2
     public TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null || root == p || root == q)
             return root;
         TreeNode left = lowestCommonAncestor(root.left, p, q);
         TreeNode right = lowestCommonAncestor(root.right, p, q);
-        return left == null ? right : right == null ? left : root;
+        return left == null ? right : (right == null ? left : root);
+    }
+}
+
+
+class TreeToGraph {
+    Map<TreeNode, List<TreeNode>> map = new HashMap();
+
+    private void buildMap(TreeNode node, TreeNode parent) {
+        if (node == null) return;
+        if (!map.containsKey(node)) {
+            map.put(node, new ArrayList<TreeNode>());
+
+            if (parent != null)  {
+                map.get(node).add(parent);
+                map.get(parent).add(node);
+            }
+
+            buildMap(node.left, node);
+            buildMap(node.right, node);
+        }
+    }
+
+    public void main() {
+        buildMap(root, null); 
     }
 }
